@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<!-- Copyright (C) 2020 Enya Rodriguez, All Rights Reserved -->
+<html>
+    <head>
+        <title>Media Player</title>
+        <link rel="stylesheet" type="text/css" href="css/style_base.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+
+        <script type="module" src="scripts/index.js"></script>
+
+    <!-- JQuery -->
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <!-- Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="//www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+            
+    <!-- Add Firebase products that you want to use -->
+    <script src="//www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>  
+    <script src="//www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>  
+    <script src="//www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script>  
+    
+
+    <!-- Other Libraries -->
+    <script type="text/javascript" src="scripts/Lib/jsmediatags.min.js"></script>
+    <script type="text/javascript" src="scripts/Lib/buzz.min.js"></script>
+    <script type="text/javascript" src="scripts/Lib/jdataview.js"></script>
+
+    <body>
+        <section id="app-container" class="flex-container">
+            <header>
+                <div id="hamburger-menu"></div>
+                <h2>Media Player</h2>
+                <div id="extras-btn"></div>
+            </header>
+
+            <aside id="left-menu">
+                <div id="sidebar-accordion">
+
+                    <div class="group">
+                        <h3>Media Info</h3>
+                        <div id="wikipedia-info"><?php //Dynamic content here ?></div>
+                    </div>
+
+                    <div class="group">
+                        <h3>Support/Contact</h3>
+                        <div></div>
+                    </div>
+
+                    <div class="group">
+                        <h3>About</h3>
+                        <div>Developed by the Instructors of VFS (C) 2015</div>
+                    </div>
+
+                </div>
+            </aside>
+
+            <div id="playlist" class="flex-item">
+    	        <div id="app-area">
+    	            <section id="current-track-area">
+        	            <div id="now-playing" class="info-area">
+        	                <div id="album-image" class=""></div>
+        	                <input type="text" id="track-name"  class="playing-field" name="track-name"  readonly="true" value="Said the Whale" />
+        	                <input type="text" id="track-album" class="playing-field" name="track-album" readonly="true" value="Mother" />
+        	                <input type="text" id="track-year"  class="playing-field" name="track-year"  readonly="true" value="2013" /><br />
+                            <label id='track-duration'>00:00</label>
+                        </div>
+                        
+                        <!-- the actual generated playlist-->
+                        <ul id="the-playlist" class="left">
+                            
+                        </ul>
+
+                    </section>
+                </div>
+            </div>
+
+            <section id="controls" class="">
+                <div id="toolbar" class="">
+                    <button id="beginning">first</button>
+                    <button id="rewind">rewind</button>
+                    <button id="play">play</button>
+                    <button id="stop">stop</button>
+                    <button id="forward">fast forward</button>
+                    <button id="end">last</button>
+
+                    <input type="checkbox" id="shuffle">
+                    <label for="shuffle">Shuffle</label>
+
+                    <span id="repeat">
+                        <input type="radio" id="repeat0" name="repeat" checked="checked">
+                        <label for="repeat0">No Repeat</label>
+                        <input type="radio" id="repeat1" name="repeat">
+                        <label for="repeat1">Once</label>
+                        <input type="radio" id="repeatall" name="repeat">
+                        <label for="repeatall">All</label>
+                    </span>
+                </div>
+                <div class="clear"></div>
+            </section>
+            <br/>
+            <section>
+                <form id="playlist-item" class="data-entry">
+                    <label>Track Name</label>
+                    <input type="text" name="track-name-entry" value=""><br/>
+                    <label>Track Album</label>
+                    <input type="text" name="track-album-entry" value=""><br/>
+
+                    <label>Track Artist</label>
+                    <input type="text" name="track-artist-entry" value=""><br/>
+                    <label>Track Year</label>
+                    <input type="text" name="track-year-entry" value=""><br/>
+
+                    <input type="submit" name="submit" id="Save">
+                </form>
+            </section>
+
+            <div id="virtual-console"><!-- dynamic updates --></div>
+        </section>
+
+        
+
+    </body>
+</html>
